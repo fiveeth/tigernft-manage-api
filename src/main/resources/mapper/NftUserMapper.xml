@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.tiger.nft.mapper.NftUserMapper">
+    <resultMap id="NftUser" type="com.tiger.nft.domain.user.NftUser">
+        <result property="id" column="ID" jdbcType="INTEGER"/>
+        <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="UPDATE_TIME" jdbcType="TIMESTAMP"/>
+        <result property="username" column="USERNAME" jdbcType="VARCHAR"/>
+        <result property="password" column="PASSWORD" jdbcType="VARCHAR"/>
+        <result property="userId" column="USER_ID" jdbcType="VARCHAR"/>
+        <result property="gender" column="GENDER" jdbcType="INTEGER"/>
+        <result property="area" column="AREA" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="columns">
+        ID,CREATE_TIME,UPDATE_TIME,USERNAME,PASSWORD,USER_ID,GENDER,AREA
+    </sql>
+
+    <select id="getUserInfo" resultMap="NftUser">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        NFT_USER
+        WHERE USERNAME = #{username} AND PASSWORD = #{password}
+    </select>
+</mapper>
+

@@ -1,0 +1,16 @@
+server:
+  port: 2022
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/tiger_nft
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      initial-size: 5
+      max-active: 100
+      test-while-idle: true
+      validation-query: SELECT 1
+      min-evictable-idle-time-millis: 300000
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
