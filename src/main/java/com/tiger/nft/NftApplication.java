@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author xxx
  */
 @SpringBootApplication
-@MapperScan("com.tiger.nft.mapper")
+@MapperScan("com.tiger.nft.dao")
 public class NftApplication {
 
     public static void main(String[] args) {

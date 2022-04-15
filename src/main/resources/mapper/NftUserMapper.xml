@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-<mapper namespace="com.tiger.nft.mapper.NftUserMapper">
+<mapper namespace="com.tiger.nft.dao.NftUserMapper">
     <resultMap id="NftUser" type="com.tiger.nft.domain.user.NftUser">
         <result property="id" column="ID" jdbcType="INTEGER"/>
         <result property="createTime" column="CREATE_TIME" jdbcType="TIMESTAMP"/>
@@ -23,6 +23,13 @@
         FROM
         NFT_USER
         WHERE USERNAME = #{username} AND PASSWORD = #{password}
+    </select>
+
+    <select id="getUserList" resultMap="NftUser">
+        SELECT
+        <include refid="columns"/>
+        FROM
+        NFT_USER
     </select>
 </mapper>
 
